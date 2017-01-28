@@ -1,2 +1,2 @@
 # SentimentClassification
-Using R and Weka
+Using R 
