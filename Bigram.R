@@ -48,7 +48,7 @@ m= inspect(tdm)
 
 library(wordcloud)
 set.seed(1234)
-
+v = sort(rowSums(m), decreasing = TRUE)
 #you can change the frequency of the terms to a number of your choice.
 wordcloud(names(v), v, min.freq = 10)
 
