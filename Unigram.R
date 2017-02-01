@@ -39,15 +39,16 @@ UnigramTokenizer <- function(y) NGramTokenizer(y, Weka_control(min = 1, max = 1)
 tdm <- TermDocumentMatrix(corp, control = list(tokenize = UnigramTokenizer))
 m= inspect(tdm)
 
+#create the wordcloud 
 v = sort(rowSums(m), decreasing = TRUE) 
 wordcloud(names(v), v, min.freq = 10)
 
+#prepare the csv file
 DF <- as.data.frame(m, stringsAsFactors = FALSE)
 nrow(DF)
 DF=as.matrix(DF)
 tdf=as.data.frame(t(DF))
 tdf=cbind(tdf,input[,2])
-#continued on next page
 len=ncol(tdf)
 header=c(1:(len-1))
 header=c(header,"Class")
