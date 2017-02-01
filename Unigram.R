@@ -35,10 +35,11 @@ corp <- tm_map(corp, removePunctuation)
 inspect(corp)
 
 #create the bigrams and Term document matrix
-UnigramTokenizer <- function(y) NGramTokenizer(y, Weka_control(min = 2, max = 2))
+UnigramTokenizer <- function(y) NGramTokenizer(y, Weka_control(min = 1, max = 1))
 tdm <- TermDocumentMatrix(corp, control = list(tokenize = UnigramTokenizer))
 m= inspect(tdm)
 
+v = sort(rowSums(m), decreasing = TRUE) 
 wordcloud(names(v), v, min.freq = 10)
 
 DF <- as.data.frame(m, stringsAsFactors = FALSE)
