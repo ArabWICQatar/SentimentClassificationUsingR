@@ -41,7 +41,7 @@ m= inspect(tdm)
 
 #create the wordcloud 
 v = sort(rowSums(m), decreasing = TRUE) 
-wordcloud(names(v), v, min.freq = 10)
+wordcloud(names(v), v, min.freq = 20)
 
 #prepare the csv file
 DF <- as.data.frame(m, stringsAsFactors = FALSE)
