@@ -52,18 +52,18 @@ v = sort(rowSums(m), decreasing = TRUE)
 #you can change the frequency of the terms to a number of your choice.
 wordcloud(names(v), v, min.freq = 10)
 
-
+#create a dataframe to hold our data
 DF <- as.data.frame(m, stringsAsFactors = FALSE)
 nrow(DF)
 DF=as.matrix(DF)
 tdf=as.data.frame(t(DF))
 tdf=cbind(tdf,input[,2])
-#continued on next page
 len=ncol(tdf)
 header=c(1:(len-1))
 header=c(header,"Class")
 colnames(tdf)=header
 
+#create svm model using the train and test sets 
 trainset <- tdf[1:1800,]
 testset <- tdf[1801:2000,]
 
